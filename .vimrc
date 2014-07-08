@@ -43,6 +43,8 @@ if has("autocmd")
   autocmd FileType kata let @/=''
   autocmd FileType kata setlocal autoindent
   autocmd FileType ruby setlocal noautoindent
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+  \| exe "normal! g'\"" | endif
 endif
 
 syntax on
